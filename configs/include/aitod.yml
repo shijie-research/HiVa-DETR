@@ -1,0 +1,33 @@
+# AI-TOD-v2 test split, 800 x 800 images
+
+num_classes: 8
+
+DFINETransformer:
+  anchor_cells: 3
+  # the number of queries of an image follows the number of tokens scored above 0.15
+  query_budget: threshold
+  count_threshold: 0.15
+  count_margin: 200
+  count_round: 100
+  count_range: [300, 1500]
+
+val_dataloader:
+  type: DataLoader
+  dataset:
+    type: AITODDetection
+    split: test
+    transforms:
+      type: Compose
+      ops:
+        - {type: Resize, size: [800, 800]}
+        - {type: ConvertPILImage, dtype: float32, scale: True}
+  collate_fn:
+    type: BatchImageCollateFunction
+    pad_to_multiple: 32
+  shuffle: False
+  num_workers: 4
+  total_batch_size: 16
+
+evaluator:
+  type: AITODEvaluator
+  iou_types: [bbox]

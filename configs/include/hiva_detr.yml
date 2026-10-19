@@ -1,0 +1,42 @@
+# HiVa-DETR: D-FINE with the stride-2 value level (P1) read by the decoder's cross-attention
+
+model: HiVaDETR
+postprocessor: PostProcessor
+
+HiVaDETR:
+  backbone: HGNetv2
+  encoder: HybridEncoder
+  decoder: DFINETransformer
+
+HGNetv2:
+  return_idx: [0, 1, 2, 3]
+  return_stem: True
+
+HybridEncoder:
+  feat_strides: [4, 8, 16, 32]
+  hidden_dim: 256
+  use_encoder_idx: [3]
+  num_encoder_layers: 1
+  nhead: 8
+  dim_feedforward: 1024
+  dropout: 0.
+  enc_act: gelu
+  act: silu
+  # the value level: 64 channels, its fusion block at the same size for every scale
+  fine_dim: 64
+  fine_expansion: 0.5
+  fine_depth_mult: 0.34
+
+DFINETransformer:
+  feat_channels: [256, 256, 256, 256]
+  feat_strides: [4, 8, 16, 32]
+  hidden_dim: 256
+  num_levels: 4
+  fine_channels: 64
+  # sampling points per head: the value level first, then strides 4, 8, 16 and 32
+  num_points: [6, 6, 4, 4, 4]
+  reg_max: 32
+  reg_scale: 4
+
+PostProcessor:
+  num_top_queries: 1500

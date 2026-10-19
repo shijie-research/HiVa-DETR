@@ -1,0 +1,12 @@
+HGNetv2:
+  name: B2
+  use_lab: True
+
+HybridEncoder:
+  in_channels: [96, 384, 768, 1536]
+  depth_mult: 0.67
+  expansion: 1
+  fine_in_channels: 48   # the stem map's width
+
+DFINETransformer:
+  num_layers: 4

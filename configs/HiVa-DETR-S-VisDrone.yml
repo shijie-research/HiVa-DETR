@@ -1,0 +1,1 @@
+__include__: [include/hiva_detr.yml, include/scale_s.yml, include/visdrone.yml]

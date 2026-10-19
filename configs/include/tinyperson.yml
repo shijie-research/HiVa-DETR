@@ -1,0 +1,32 @@
+# TinyPerson test split at the images' own scale, in overlapping 640 x 512 windows
+
+num_classes: 1
+
+DFINETransformer:
+  num_queries: 300
+  anchor_cells: 3
+  num_points: [6, 4, 4, 4, 4]
+
+val_dataloader:
+  type: DataLoader
+  dataset:
+    type: TinyPersonDetection
+    split: test
+    tile_size: [640, 512]
+    tile_overlap: 100
+    transforms:
+      type: Compose
+      ops:
+        - {type: ConvertPILImage, dtype: float32, scale: True}
+  collate_fn:
+    type: BatchImageCollateFunction
+    pad_to_multiple: 32
+  shuffle: False
+  num_workers: 4
+  total_batch_size: 16
+
+evaluator:
+  type: TinyPersonEvaluator
+  iou_types: [bbox]
+  merge_nms_threshold: 0.5
+  max_dets: [200]
