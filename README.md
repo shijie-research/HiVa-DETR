@@ -15,17 +15,17 @@ This repository currently contains the inference and evaluation code and the tra
 
 | Model | Params (M) | GFLOPs | AP | AP50 | AP75 | APs | APm | APl | Checkpoint |
 |---|---|---|---|---|---|---|---|---|---|
-| HiVa-DETR-S | 12.0 | 130.3 | 37.6 | 59.9 | 39.5 | 30.2 | 47.4 | 61.4 | [hiva_detr_s_visdrone.pth](../../releases/download/v1.0/hiva_detr_s_visdrone.pth) |
-| HiVa-DETR-M | 22.8 | 263.9 | 39.7 | 62.8 | 41.4 | 32.4 | 49.5 | 63.4 | [hiva_detr_m_visdrone.pth](../../releases/download/v1.0/hiva_detr_m_visdrone.pth) |
-| HiVa-DETR-L | 35.2 | 349.5 | 39.9 | 63.1 | 42.1 | 32.5 | 49.9 | 61.5 | [hiva_detr_l_visdrone.pth](../../releases/download/v1.0/hiva_detr_l_visdrone.pth) |
+| HiVa-DETR-S | 12.0 | 130.3 | 37.6 | 59.9 | 39.5 | 30.2 | 47.4 | 61.4 | [hiva_detr_s_visdrone.pth](https://github.com/shijie-research/HiVa-DETR/releases/download/v1.0/hiva_detr_s_visdrone.pth) |
+| HiVa-DETR-M | 22.8 | 263.9 | 39.7 | 62.8 | 41.4 | 32.4 | 49.5 | 63.4 | [hiva_detr_m_visdrone.pth](https://github.com/shijie-research/HiVa-DETR/releases/download/v1.0/hiva_detr_m_visdrone.pth) |
+| HiVa-DETR-L | 35.2 | 349.5 | 39.9 | 63.1 | 42.1 | 32.5 | 49.9 | 61.5 | [hiva_detr_l_visdrone.pth](https://github.com/shijie-research/HiVa-DETR/releases/download/v1.0/hiva_detr_l_visdrone.pth) |
 
 **AI-TOD-v2** (test)
 
 | Model | Params (M) | GFLOPs | AP | AP50 | AP75 | APvt | APt | APs | APm | Checkpoint |
 |---|---|---|---|---|---|---|---|---|---|---|
-| HiVa-DETR-S | 12.0 | 128.0* | 32.8 | 67.8 | 27.9 | 17.1 | 32.5 | 39.5 | 46.5 | [hiva_detr_s_aitod.pth](../../releases/download/v1.0/hiva_detr_s_aitod.pth) |
-| HiVa-DETR-M | 22.8 | 260.6* | 33.9 | 67.7 | 29.8 | 17.1 | 34.0 | 39.5 | 47.9 | [hiva_detr_m_aitod.pth](../../releases/download/v1.0/hiva_detr_m_aitod.pth) |
-| HiVa-DETR-L | 35.2 | 344.8* | 34.7 | 69.4 | 30.4 | 18.7 | 34.7 | 39.6 | 49.3 | [hiva_detr_l_aitod.pth](../../releases/download/v1.0/hiva_detr_l_aitod.pth) |
+| HiVa-DETR-S | 12.0 | 128.0* | 32.8 | 67.8 | 27.9 | 17.1 | 32.5 | 39.5 | 46.5 | [hiva_detr_s_aitod.pth](https://github.com/shijie-research/HiVa-DETR/releases/download/v1.0/hiva_detr_s_aitod.pth) |
+| HiVa-DETR-M | 22.8 | 260.6* | 33.9 | 67.7 | 29.8 | 17.1 | 34.0 | 39.5 | 47.9 | [hiva_detr_m_aitod.pth](https://github.com/shijie-research/HiVa-DETR/releases/download/v1.0/hiva_detr_m_aitod.pth) |
+| HiVa-DETR-L | 35.2 | 344.8* | 34.7 | 69.4 | 30.4 | 18.7 | 34.7 | 39.6 | 49.3 | [hiva_detr_l_aitod.pth](https://github.com/shijie-research/HiVa-DETR/releases/download/v1.0/hiva_detr_l_aitod.pth) |
 
 \* Averaged over the test split, as the number of queries varies per image.
 
@@ -33,7 +33,7 @@ This repository currently contains the inference and evaluation code and the tra
 
 | Model | tiny1 | tiny2 | tiny3 | tiny | small | Checkpoint |
 |---|---|---|---|---|---|---|
-| HiVa-DETR-S | 46.15 | 61.02 | 65.77 | 57.68 | 68.26 | [hiva_detr_s_tinyperson.pth](../../releases/download/v1.0/hiva_detr_s_tinyperson.pth) |
+| HiVa-DETR-S | 46.15 | 61.02 | 65.77 | 57.68 | 68.26 | [hiva_detr_s_tinyperson.pth](https://github.com/shijie-research/HiVa-DETR/releases/download/v1.0/hiva_detr_s_tinyperson.pth) |
 
 Results may differ in the last digit on other GPUs.
 
