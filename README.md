@@ -2,10 +2,20 @@
 
 Official code and checkpoints of **Fine Values, Coarse Tokens: High-Resolution Value Sampling for Detecting Tiny Objects with DETRs**.
 
+<p align="center">
+  <img src="assets/teaser.png" width="100%" alt="D-FINE and HiVa-DETR on tiny objects of VisDrone">
+</p>
+<p align="center"><em>Values at stride 2 instead of stride 4 improve both the localization and the classification of tiny objects (D-FINE vs. HiVa-DETR on VisDrone).</em></p>
+
 High-Resolution Value Sampling (HiVa) gives the decoder of a DETR a stride-2 feature map (P1) that is read as values only.
 P1 is built from the backbone's stem and the stride-4 pyramid level, and every decoder layer samples it in its deformable cross-attention.
 It never enters the encoder or the query selection, so the number of tokens is unchanged.
 HiVa-DETR applies HiVa to D-FINE.
+
+<p align="center">
+  <img src="assets/architecture.png" width="100%" alt="Architecture of HiVa">
+</p>
+<p align="center"><em>(a) Tokens and values decoupled: P1 joins the values of the decoder only. (b) The cross-attention of one head with HiVa.</em></p>
 
 This repository currently contains the inference and evaluation code and the trained checkpoints.
 The training code will be released upon acceptance of the paper.
