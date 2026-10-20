@@ -8,6 +8,7 @@ It never enters the encoder or the query selection, so the number of tokens is u
 HiVa-DETR applies HiVa to D-FINE.
 
 This repository currently contains the inference and evaluation code and the trained checkpoints.
+The training code will be released upon acceptance of the paper.
 
 ## Results and checkpoints
 
