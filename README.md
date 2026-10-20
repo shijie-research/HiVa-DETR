@@ -70,6 +70,12 @@ python test.py -c configs/HiVa-DETR-S-TinyPerson.yml -r weights/hiva_detr_s_tiny
 
 Config entries can be overridden on the command line, e.g. `-u val_dataloader.total_batch_size=8 val_dataloader.num_workers=2`.
 
+## AI assistance
+
+The research idea, the method and the design of the experiments are the authors' own.
+The code was written, refactored and organized with [Claude Code](https://claude.com/claude-code) (Anthropic's Claude Opus models) under the authors' direction.
+The authors reviewed the code and checked the released checkpoints against the reported results.
+
 ## Acknowledgments
 
 This code is built on [D-FINE](https://github.com/Peterande/D-FINE), [RT-DETR](https://github.com/lyuwenyu/RT-DETR) and [Dome-DETR](https://github.com/RicePasteM/Dome-DETR).
