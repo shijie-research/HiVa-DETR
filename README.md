@@ -7,15 +7,18 @@ Official code and checkpoints of **Fine Values, Coarse Tokens: High-Resolution V
 </p>
 <p align="center"><em>Values at stride 2 instead of stride 4 improve both the localization and the classification of tiny objects (D-FINE vs. HiVa-DETR on VisDrone).</em></p>
 
-High-Resolution Value Sampling (HiVa) gives the decoder of a DETR a stride-2 feature map (P1) that is read as values only.
-P1 is built from the backbone's stem and the stride-4 pyramid level, and every decoder layer samples it in its deformable cross-attention.
-It never enters the encoder or the query selection, so the number of tokens is unchanged.
+The sampling points of a decoder head on a tiny object tend to fall within a single cell of the finest pyramid level of a DETR, so the head reads nearly identical features at all of its points.
+We term this sampling collapse.
+High-Resolution Value Sampling (HiVa) alleviates it by decoupling the resolution of the values from that of the tokens.
+It builds a lightweight stride-2 level P1 from the backbone's stem feature and P2, and feeds P1 to the decoder solely as values.
+Every decoder layer samples P1 jointly with P2 to P5 in its deformable cross-attention, while the encoder and the query selection keep their tokens unchanged.
+This costs about one twentieth of adding P1 as tokens.
 HiVa-DETR applies HiVa to D-FINE.
 
 <p align="center">
   <img src="assets/architecture.png" width="100%" alt="Architecture of HiVa">
 </p>
-<p align="center"><em>(a) Tokens and values decoupled: P1 joins the values of the decoder only. (b) The cross-attention of one head with HiVa.</em></p>
+<p align="center"><em>(a) D-FINE with HiVa, whose parts are drawn in vermilion and numbered. HiVa (1) builds the stride-2 level P1 from the stem feature and P2, (2) feeds P1 to the decoder solely as values, and (3) samples it jointly with P2 to P5 in the deformable cross-attention. (b) One head of that deformable cross-attention with HiVa.</em></p>
 
 This repository currently contains the inference and evaluation code and the trained checkpoints.
 The training code will be released upon acceptance of the paper.
