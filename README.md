@@ -18,7 +18,7 @@ HiVa-DETR applies HiVa to D-FINE.
 <p align="center">
   <img src="assets/architecture.png" width="100%" alt="Architecture of HiVa">
 </p>
-<p align="center"><em>(a) D-FINE with HiVa, whose parts are drawn in vermilion and numbered. HiVa (1) builds the stride-2 level P1 from the stem feature and P2, (2) feeds P1 to the decoder solely as values, and (3) samples it jointly with P2 to P5 in the deformable cross-attention. (b) One head of that deformable cross-attention with HiVa.</em></p>
+<p align="center"><em>Architecture of HiVa, which decouples the resolution of the values from that of the tokens. All feature maps (channel norms), detections, queries, and sampling points come from the trained HiVa-DETR-S on one VisDrone image. (a) Tokens and values decoupled, in D-FINE with HiVa, whose parts are drawn in vermilion and numbered. HiVa (1) builds the stride-2 level P1 from the stem feature and P2, (2) feeds P1 to the decoder solely as values, and (3) samples it jointly with P2 to P5 in the deformable cross-attention detailed in (b). The scene in the value path marks in vermilion the query of a motorcycle of 10 pixels. (b) One head of this cross-attention, which lifts its samples of P1 to the channels of the head. Its output updates the query, from which each decoder layer predicts both the classes and the boxes. For the motorcycle, the points of this head fall into at most two cells of P2 to P5 but five cells of P1.</em></p>
 
 This repository currently contains the inference and evaluation code and the trained checkpoints.
 The training code will be released upon acceptance of the paper.
